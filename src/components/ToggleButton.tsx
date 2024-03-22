@@ -1,18 +1,17 @@
-"use client";
 import { useEffect, useState } from "react";
 
 const ToggleButton = () => {
-  const [isChecked, setIsChecked] = useState(Boolean);
-  const initialTheme = localStorage.getItem("theme") || "light";
-  const [theme, setTheme] = useState(initialTheme);
+  const [isChecked, setIsChecked] = useState(
+    Boolean(localStorage.getItem("theme") === "dark")
+  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const handleToggle = () => {
     setIsChecked(!isChecked);
-    if (isChecked) {
-    }
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
   };
+
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
