@@ -12,7 +12,7 @@ const SportCard = () => {
           className="w-44 mb-3"
         />
         <div className="p-4 pt-2">
-          <div className="font-bold text-lg mb-2 hover:text-indigo-600 inline-block">
+          <div className="font-bold text-lg mb-2 hover:text-indigo-600 inline-block dark:text-3xl">
             Sacramento River Cats
           </div>
         </div>
