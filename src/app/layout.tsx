@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ToggleButton from "@/components/ToggleButton";
+import ToggleButton from "@/components/Toggle-Theme/ToggleButton";
+// import ToggleButton from "@/components/ToggleButton";
 
 
 const inter = Inter({ subsets: ["latin"] });

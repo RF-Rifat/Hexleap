@@ -16,7 +16,7 @@ const SportCard: React.FC<{ item: SportEvent }> = ({ item }) => {
           <div className="font-bold text-lg hover:text-indigo-600 inline-block dark:text-white">
             {item?.title}
           </div>
-          <div className="dark:bg-[#292B32] grid grid-flow-col p-3 justify-between">
+          <div className="bg-[#F7F7F8] dark:bg-[#292B32] grid grid-flow-col p-3 justify-between">
             <div className="grid">
               <span className="text-[#DFDFDF]">Total Events</span>{" "}
               <span className="dark:text-white">
