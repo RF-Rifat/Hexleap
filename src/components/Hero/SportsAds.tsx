@@ -4,7 +4,7 @@ import React from "react";
 const SportsAds = () => {
   return (
     <>
-      <div className="max-w-[17rem] mx-auto overflow-hidden shadow-md p-2 dark:bg-[#3B3E47] sticky top-0">
+      <div className="md:max-w[24rem] lg:max-w-[20rem] xl:max-w-[17rem] mx-auto overflow-hidden shadow-md p-2 dark:bg-[#3B3E47] sm:sticky top-2 h-fit">
         <div className="relative">
           <Image
             width={600}
@@ -21,7 +21,7 @@ const SportsAds = () => {
             </div>
           </div>
         </div>
-        <div className="p-4">
+        <div className="p-4 border-b border-x border-[#006555]">
           <h3 className="text-xl font-semibold mb-2 dark:text-white">
             Advertisement title
           </h3>
@@ -29,7 +29,8 @@ const SportsAds = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
+            tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
+            dolor sit amet consectetur adipisicing !
           </p>
         </div>
       </div>

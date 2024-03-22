@@ -15,10 +15,8 @@ const ToggleButton = ({ initialTheme = "light" }: ToggleButtonProps) => {
   };
 
   useEffect(() => {
-    // Apply theme without localStorage usage
     document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]); // Update theme classes on theme change
-
+  }, [theme]); 
   const buttonClasses = `
     w-[55px] h-6 flex items-center bg-gray-300 rounded-full text-[9px]
     ${isChecked ? "peer-checked:text-black" : "text-gray-300"}
@@ -33,7 +31,7 @@ const ToggleButton = ({ initialTheme = "light" }: ToggleButtonProps) => {
   `;
 
   return (
-    <div className="flex items-center absolute right-4 top-1/4">
+    <div className="flex items-center absolute right-4 top-4">
       <label className="relative cursor-pointer">
         <input
           type="checkbox"
