@@ -1,9 +1,11 @@
-import SportCard from "@/components/Hero/SportCard";
+import SportContainer from "@/components/Hero/SportContainer";
 
 export default function Home() {
   return (
     <main className="max-w-[1444px] mx-auto">
-      <SportCard />
+      <div className="px-16 py-10">
+        <SportContainer />
+      </div>
     </main>
   );
 }

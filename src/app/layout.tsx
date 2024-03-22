@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark:bg-dark`}>
+      <body
+        className={`${inter.className} bg-[#F7F7F8] dark:bg-dark`}
+      >
         <ToggleButton />
         {children}
       </body>
