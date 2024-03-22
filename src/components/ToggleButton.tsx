@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const ToggleButton = () => {
   const [isChecked, setIsChecked] = useState(
-    Boolean(localStorage.getItem("theme") === "dark")
+    localStorage.getItem("theme") === "dark"
   );
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
