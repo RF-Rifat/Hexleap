@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 
 interface ToggleButtonProps {
-  initialTheme?: "light" | "dark"; 
+  initialTheme?: "light" | "dark";
 }
 
 const ToggleButton = ({ initialTheme = "light" }: ToggleButtonProps) => {
@@ -16,7 +16,7 @@ const ToggleButton = ({ initialTheme = "light" }: ToggleButtonProps) => {
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]); 
+  }, [theme]);
   const buttonClasses = `
     w-[55px] h-6 flex items-center bg-gray-300 rounded-full text-[9px]
     ${isChecked ? "peer-checked:text-black" : "text-gray-300"}
@@ -31,7 +31,7 @@ const ToggleButton = ({ initialTheme = "light" }: ToggleButtonProps) => {
   `;
 
   return (
-    <div className="flex items-center absolute right-4 top-4">
+    <div className="flex items-center fixed right-4 md:right-10 lg:right-16 top-4">
       <label className="relative cursor-pointer">
         <input
           type="checkbox"

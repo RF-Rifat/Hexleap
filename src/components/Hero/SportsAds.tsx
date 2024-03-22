@@ -4,7 +4,7 @@ import React from "react";
 const SportsAds = () => {
   return (
     <>
-      <div className="md:max-w[24rem] lg:max-w-[20rem] xl:max-w-[17rem] mx-auto overflow-hidden shadow-md p-2 dark:bg-[#3B3E47] sm:sticky top-2 h-fit">
+      <div className="lg:max-w-[20rem] xl:max-w-[17rem] mx-auto overflow-hidden shadow-md p-2 dark:bg-[#3B3E47] sm:sticky top-10 h-fit">
         <div className="relative">
           <Image
             width={600}
