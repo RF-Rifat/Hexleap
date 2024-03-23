@@ -1,16 +1,42 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 export const CardSwiper = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
-  // The slider images array
+  const imageData = [
+    {
+      title: "Las Vegas Aviators",
+      date: "OCT 15 SUN",
+      time: "4:30 PM",
+      location: "Las Vegas Ballpark, Las Vegas, Nevada",
+      imageUrl: "/Collection/img-1.jpeg",
+    },
+    {
+      title: "Sacramento River Cats",
+      date: "OCT 15 SUN",
+      time: "4:30 PM",
+      location: "Sutter Health Park, Sacramento, California",
+      imageUrl: "/Collection/img-2.jpeg",
+    },
+    {
+      title: "Las Vegas Aviators",
+      date: "OCT 15 SUN",
+      time: "4:30 PM",
+      location: "Las Vegas Ballpark, Las Vegas, Nevada",
+      imageUrl: "/Collection/img-1.jpeg",
+    },
+  ];
   const sliderImages = [
-    "/Sports/sports-1.jpeg",
-    "/Sports/sports-2.jpeg",
-    "/Sports/sports-3.jpeg",
-    "/Sports/sports-4.jpeg",
-    "/Sports/sports-5.jpeg",
+    "/Collection/img-1.jpeg",
+    "/Collection/img-2.jpeg",
+    "/Collection/img-1.jpeg",
+    "/Collection/img-2.jpeg",
+    "/Collection/img-1.jpeg",
+    "/Collection/img-2.jpeg",
+    "/Collection/img-1.jpeg",
+    "/Collection/img-2.jpeg",
+    "/Collection/img-1.jpeg",
   ];
   const prevSlider = () => {
     setCurrentSlider((currentSlider) =>
@@ -23,7 +49,6 @@ export const CardSwiper = () => {
     );
   }, [sliderImages.length]);
 
-  // if you don't want to change the slider automatically then you can just remove the useEffect
   useEffect(() => {
     const intervalId = setInterval(() => {
       nextSlider();
@@ -33,14 +58,13 @@ export const CardSwiper = () => {
 
   return (
     <div className="relative mx-auto w-fit">
-      {/* arrow left */}
       <button
         onClick={prevSlider}
-        className="absolute -left-6 top-1/2 flex h-6 w-6 items-center justify-center md:h-8 md:w-8"
+        className="absolute -left-4 md:-left-16 top-1/2 flex h-6 w-6 items-center justify-center md:h-10 md:w-10"
       >
         <svg
           viewBox="0 0 1024 1024"
-          className="icon h-4 w-4 md:h-6 md:w-6"
+          className="icon h-4 w-6 md:h-8 md:w-6"
           xmlns="http://www.w3.org/2000/svg"
           fill="#000000"
         >
@@ -58,14 +82,13 @@ export const CardSwiper = () => {
           </g>
         </svg>
       </button>
-      {/* arrow right */}
       <button
         onClick={nextSlider}
-        className="absolute -right-6 top-1/2 flex h-6 w-6 items-center justify-center md:h-8 md:w-8"
+        className="absolute -right-4 md:-right-16 top-1/2 flex h-6 w-6 items-center justify-center md:h-10 md:w-10"
       >
         <svg
           viewBox="0 0 1024 1024"
-          className="icon h-4 w-4 md:h-6 md:w-6"
+          className="icon h-4 w-6 md:h-8 md:w-6"
           xmlns="http://www.w3.org/2000/svg"
           fill="#000000"
           transform="rotate(180)"
@@ -84,20 +107,18 @@ export const CardSwiper = () => {
           </g>
         </svg>
       </button>
-      <div className="w-full max-w-72 overflow-hidden">
-        {/* slider container */}
+      <div className="w-full overflow-hidden">
         <div
           className="flex transform-gpu duration-500 ease-linear"
-          style={{ transform: `translateX(-${currentSlider * 100}%)` }}
+          style={{ transform: `translateX(-${currentSlider * 33.33}%)` }}
         >
-          {/* sliders */}
           {sliderImages.map((slide, inx) => (
             <Image
               width={500}
               height={500}
               key={inx}
               src={slide}
-              className="mx-[2.5%] h-full min-w-[95%] rounded-2xl border-8 border-transparent object-cover"
+              className=" h-full min-w-[33.33%] rounded-2xl border-8 border-transparent object-cover overflow-hidden"
               alt={`Slider - ${inx + 1}`}
             />
           ))}
@@ -106,5 +127,3 @@ export const CardSwiper = () => {
     </div>
   );
 };
-
-

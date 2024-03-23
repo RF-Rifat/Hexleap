@@ -9,13 +9,8 @@ export default function Home() {
           Sports
         </span>
         <SportContainer />
-        {/* swiper */}
-        <div
-          style={{
-            background: "linear-gradient(180deg, #18282A 0%, #221A2C 100%)",
-          }}
-          className="p-24"
-        >
+
+        <div className="p-6 md:p-24 dark:bg-gradient-to-b from-[#18282A] to-[#221A2C]">
           <CardSwiper />
         </div>
       </div>

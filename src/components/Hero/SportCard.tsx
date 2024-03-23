@@ -6,7 +6,7 @@ const SportCard: React.FC<{ item: SportEvent }> = ({ item }) => {
     <>
       <div className="bg-[#FFFFFF] dark:bg-[#3B3E47] lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal p-2">
         <Image
-          width={600}
+          width={1000}
           height={1000}
           alt="sports-person"
           src={item?.imgLink}

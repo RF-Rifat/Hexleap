@@ -9,12 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      gradientColors: {
+        "custom-gradient": ["180deg", "#18282A", "#221A2C"],
+      },
       colors: {
         dark: "#292B32",
         darkText: "#ffffff",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-gradients")],
 };
 export default config;
