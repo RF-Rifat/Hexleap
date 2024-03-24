@@ -31,7 +31,7 @@ const ToggleButton:React.FC = ({ initialTheme = "light" }: ToggleButtonProps) =>
   `;
 
   return (
-    <div className="flex items-center fixed right-4 md:right-10 lg:right-28 top-12 z-50">
+    <div className="flex items-center fixed right-4 md:right-10 lg:right-28 top-6 lg:top-12 z-50">
       <label className="relative cursor-pointer">
         <input
           type="checkbox"

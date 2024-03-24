@@ -136,7 +136,7 @@ export const CardSwiper: React.FC = () => {
           className="flex transform-gpu duration-500 ease-linear gap-10 xl:gap-16 px-6"
           style={{
             transform: `translateX(-${
-              currentSlider * (small ? 98 : medium ? 34 : 50)
+              currentSlider * (small ? 98 : medium ? 34 : 48)
             }%)`,
           }}
         >
