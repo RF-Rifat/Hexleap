@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SportEvent } from "../../types/sport-event";
+import { SportEvent } from "../../types/event-types";
 
 const SportCard: React.FC<{ item: SportEvent }> = ({ item }) => {
   return (

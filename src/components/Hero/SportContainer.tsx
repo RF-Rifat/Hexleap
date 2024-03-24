@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SportEvent } from "../../types/sport-event";
+import { SportEvent } from "../../types/event-types";
 import SportCard from "./SportCard";
 import SportsAds from "./SportsAds";
 
