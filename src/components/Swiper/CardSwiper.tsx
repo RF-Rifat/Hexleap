@@ -4,13 +4,14 @@ import { useCallback, useEffect, useState } from "react";
 
 export const CardSwiper = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
-  const imageData = [
+  const swiperData = [
     {
       title: "Las Vegas Aviators",
       date: "OCT 15 SUN",
       time: "4:30 PM",
       location: "Las Vegas Ballpark, Las Vegas, Nevada",
       imageUrl: "/Collection/img-1.jpeg",
+      btnTag: "Take Flight Collection",
     },
     {
       title: "Sacramento River Cats",
@@ -18,6 +19,7 @@ export const CardSwiper = () => {
       time: "4:30 PM",
       location: "Sutter Health Park, Sacramento, California",
       imageUrl: "/Collection/img-2.jpeg",
+      btnTag: "Orange Collection",
     },
     {
       title: "Las Vegas Aviators",
@@ -25,29 +27,20 @@ export const CardSwiper = () => {
       time: "4:30 PM",
       location: "Las Vegas Ballpark, Las Vegas, Nevada",
       imageUrl: "/Collection/img-1.jpeg",
+      btnTag: "Take Flight Collection",
     },
   ];
-  const sliderImages = [
-    "/Collection/img-1.jpeg",
-    "/Collection/img-2.jpeg",
-    "/Collection/img-1.jpeg",
-    "/Collection/img-2.jpeg",
-    "/Collection/img-1.jpeg",
-    "/Collection/img-2.jpeg",
-    "/Collection/img-1.jpeg",
-    "/Collection/img-2.jpeg",
-    "/Collection/img-1.jpeg",
-  ];
+
   const prevSlider = () => {
     setCurrentSlider((currentSlider) =>
-      currentSlider === 0 ? sliderImages.length - 1 : currentSlider - 1
+      currentSlider === 0 ? swiperData.length - 1 : currentSlider - 1
     );
   };
   const nextSlider = useCallback(() => {
     setCurrentSlider((currentSlider) =>
-      currentSlider === sliderImages.length - 1 ? 0 : currentSlider + 1
+      currentSlider === swiperData.length - 1 ? 0 : currentSlider + 1
     );
-  }, [sliderImages.length]);
+  }, [swiperData.length]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -109,18 +102,41 @@ export const CardSwiper = () => {
       </button>
       <div className="w-full overflow-hidden">
         <div
-          className="flex transform-gpu duration-500 ease-linear"
-          style={{ transform: `translateX(-${currentSlider * 33.33}%)` }}
+          className="flex transform-gpu duration-500 ease-linear gap-4 md:gap-6 lg:gap-10 xl:gap-16"
+          style={{ transform: `translateX(-${currentSlider * 35}%)` }}
         >
-          {sliderImages.map((slide, inx) => (
-            <Image
-              width={500}
-              height={500}
+          {swiperData.map((item, inx) => (
+            <div
               key={inx}
-              src={slide}
-              className=" h-full min-w-[33.33%] rounded-2xl border-8 border-transparent object-cover overflow-hidden"
-              alt={`Slider - ${inx + 1}`}
-            />
+              className="min-w-[30%] rounded-sm bg-white dark:bg-[#818A97] py-4"
+            >
+              <div className="divide-y-2 divide-[#818A97] dark:divide-white divide-dashed mx-5">
+                <Image
+                  width={500}
+                  height={500}
+                  src={item?.imageUrl}
+                  className=" border-transparent object-cover pb-5"
+                  alt={`Slider - ${inx + 1}`}
+                />
+                <div className="grid justify-center space-y-3 relative">
+                  <div className="absolute h-4 w-4 bg-[#F7F7F8] rounded-full dark:bg-[#1F1D2B] -top-2 -left-6 z-50"></div>
+                  <div className="absolute h-4 w-4 bg-[#F7F7F8] rounded-full dark:bg-[#201E2C] -top-5  -right-6 z-50"></div>
+                  <h2 className="text-2xl font-semibold text-center">
+                    {" "}
+                    {item.title}
+                  </h2>
+                  <div className="grid grid-cols-3 divide-x divide-black text-center justify-center w-full">
+                    <p>OCT 15</p>
+                    <p>SUN</p>
+                    <p className="text-center">{item.time}</p>
+                  </div>
+                  <p className="px-2 text-center">{item.location}</p>
+                  <button className="bg-black text-white text-sm py-3">
+                    {item.btnTag}
+                  </button>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
