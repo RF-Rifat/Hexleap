@@ -5,7 +5,7 @@ interface ToggleButtonProps {
   initialTheme?: "light" | "dark";
 }
 
-const ToggleButton = ({ initialTheme = "light" }: ToggleButtonProps) => {
+const ToggleButton:React.FC = ({ initialTheme = "light" }: ToggleButtonProps) => {
   const [isChecked, setIsChecked] = useState(initialTheme === "dark");
   const [theme, setTheme] = useState(initialTheme);
 

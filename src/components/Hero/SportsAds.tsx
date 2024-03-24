@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const SportsAds = () => {
+const SportsAds: React.FC = () => {
   return (
     <>
       <div className="lg:max-w-[20rem] xl:max-w-[17rem] mx-auto overflow-hidden shadow-md p-2 dark:bg-[#3B3E47] sm:sticky top-10 h-fit">
