@@ -18,9 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} bg-[#F7F7F8] dark:bg-dark`}
-      >
+      <head>
+        <link rel="shortcut icon" href="/Logo.png" type="image/png" />
+      </head>
+      <body className={`${inter.className} bg-[#F7F7F8] dark:bg-dark`}>
         <ToggleButton />
         {children}
       </body>

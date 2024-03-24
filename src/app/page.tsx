@@ -10,11 +10,11 @@ export default function Home() {
         </span>
         <SportContainer />
 
-        <div className="p-6 md:p-24 dark:bg-gradient-to-b from-[#18282A] to-[#221A2C]">
+        <div className="p-6 md:p-24 bg-[#f4f2ff] dark:bg-gradient-to-b from-[#18282A] to-[#221A2C]">
           <h1 className="text-5xl font-bold text-center py-4 dark:text-white">
             Collection Spotlight
           </h1>
-          <p className="py-4 text-center dark:text-white">
+          <p className="py-4 text-center dark:text-white pb-8 px-2 md:px-6 lg:px-10">
             Discover extraordinary moments with our Spotlight Collection
             metatickets—exclusive access to premium events for an unforgettable
             experience. Grab yours today!

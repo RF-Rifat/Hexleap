@@ -1,8 +1,24 @@
 "use client";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const CardSwiper = () => {
+  const [medium, setMedium] = useState(true);
+  const [small, setSmall] = useState(true);
+  const mediumDevice = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
+  useEffect(() => {
+    setMedium(mediumDevice);
+  }, [mediumDevice]);
+  const smallDevice = useMediaQuery({
+    query: "(min-width: 768px)",
+  });
+  useEffect(() => {
+    setSmall(!smallDevice);
+  }, [smallDevice]);
+
   const [currentSlider, setCurrentSlider] = useState(0);
   const swiperData = [
     {
@@ -14,7 +30,7 @@ export const CardSwiper = () => {
       btnTag: "Take Flight Collection",
     },
     {
-      title: "Sacramento River Cats",
+      title: "Sacramento River",
       date: "OCT 15 SUN",
       time: "4:30 PM",
       location: "Sutter Health Park, Sacramento, California",
@@ -48,7 +64,6 @@ export const CardSwiper = () => {
     }, 3000);
     return () => clearInterval(intervalId);
   }, [nextSlider, currentSlider]);
-
   return (
     <div className="relative mx-auto w-fit">
       <button
@@ -57,7 +72,7 @@ export const CardSwiper = () => {
       >
         <svg
           viewBox="0 0 1024 1024"
-          className="icon h-4 w-6 md:h-8 md:w-6"
+          className="icon h-8 w-6"
           xmlns="http://www.w3.org/2000/svg"
           fill="#000000"
         >
@@ -81,7 +96,7 @@ export const CardSwiper = () => {
       >
         <svg
           viewBox="0 0 1024 1024"
-          className="icon h-4 w-6 md:h-8 md:w-6"
+          className="icon h-8 w-6"
           xmlns="http://www.w3.org/2000/svg"
           fill="#000000"
           transform="rotate(180)"
@@ -102,36 +117,44 @@ export const CardSwiper = () => {
       </button>
       <div className="w-full overflow-hidden">
         <div
-          className="flex transform-gpu duration-500 ease-linear gap-4 md:gap-6 lg:gap-10 xl:gap-16"
-          style={{ transform: `translateX(-${currentSlider * 35}%)` }}
+          className="flex transform-gpu duration-500 ease-linear gap-10 px-6"
+          style={{
+            transform: `translateX(-${
+              currentSlider * (small ? 98 : medium ? 34 : 50)
+            }%)`,
+          }}
         >
           {swiperData.map((item, inx) => (
             <div
               key={inx}
-              className="min-w-[30%] rounded-sm bg-white dark:bg-[#818A97] py-4"
+              className="min-w-[100%] md:min-w-[46%] lg:min-w-[30%] rounded-sm bg-white dark:bg-[#818A97] py-4"
             >
               <div className="divide-y-2 divide-[#818A97] dark:divide-white divide-dashed mx-5">
                 <Image
-                  width={500}
-                  height={500}
+                  width={1000}
+                  height={1000}
                   src={item?.imageUrl}
                   className=" border-transparent object-cover pb-5"
                   alt={`Slider - ${inx + 1}`}
                 />
                 <div className="grid justify-center space-y-3 relative">
-                  <div className="absolute h-4 w-4 bg-[#F7F7F8] rounded-full dark:bg-[#1F1D2B] -top-2 -left-6 z-50"></div>
-                  <div className="absolute h-4 w-4 bg-[#F7F7F8] rounded-full dark:bg-[#201E2C] -top-5  -right-6 z-50"></div>
-                  <h2 className="text-2xl font-semibold text-center">
+                  <div className="absolute h-4 w-4 bg-[#f4f2ff] rounded-full dark:bg-[#1F1D2B] -top-2 -left-6 z-50"></div>
+                  <div className="absolute h-4 w-4 bg-[#f4f2ff] rounded-full dark:bg-[#201E2C] -top-5  -right-6 z-50"></div>
+                  <h2 className="text-2xl font-semibold text-center dark:text-white">
                     {" "}
                     {item.title}
                   </h2>
                   <div className="grid grid-cols-3 divide-x divide-black text-center justify-center w-full">
-                    <p>OCT 15</p>
-                    <p>SUN</p>
-                    <p className="text-center">{item.time}</p>
+                    <p className="dark:text-[#DFDFDF]">OCT 15</p>
+                    <p className="dark:text-[#DFDFDF]">SUN</p>
+                    <p className="text-center dark:text-[#DFDFDF]">
+                      {item.time}
+                    </p>
                   </div>
-                  <p className="px-2 text-center">{item.location}</p>
-                  <button className="bg-black text-white text-sm py-3">
+                  <p className="px-2 text-center dark:text-[#DFDFDF]">
+                    {item.location}
+                  </p>
+                  <button className="bg-black text-white text-sm py-3 rounded-sm">
                     {item.btnTag}
                   </button>
                 </div>
